@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MyCalcActivity"
+    tools:showIn="@layout/activity_calc_main">
+
+    <TableRow android:id="@+id/tableRowEquation"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
+
+        <TextView android:id="@+id/textViewEquation"
+            android:text=""
+            android:textSize="@dimen/abc_text_size_display_3_material"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:layout_span="4" />
+
+    </TableRow>
+
+    <TableRow android:id="@+id/tableRowsRes"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:weightSum="4">
+
+        <TextView android:id="@+id/textViewResult"
+            android:text=""
+            android:textSize="@dimen/abc_text_size_display_3_material"
+            android:layout_weight="4"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button android:id="@+id/buttonCE"
+            android:text="@string/buttonCEText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+
+    </TableRow>
+
+    <TableRow android:id="@+id/tablerow1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <Button android:id="@+id/buttonSeven"
+            android:text="@string/buttonSevenText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick" />
+
+        <Button android:id="@+id/buttonEight"
+            android:text="@string/buttonEightText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"
+            />
+
+        <Button android:id="@+id/buttonNine"
+            android:text="@string/buttonNineText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick" />
+
+        <Button android:id="@+id/buttonDivide"
+            android:text="@string/buttonDivideText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+
+    </TableRow>
+
+    <TableRow android:id="@+id/tablerow2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <Button android:id="@+id/buttonFour"
+            android:text="@string/buttonFourText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonFive"
+            android:text="@string/buttonFiveText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick" />
+
+        <Button android:id="@+id/buttonSix"
+            android:text="@string/buttonSixText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick" />
+
+        <Button android:id="@+id/buttonMultiply"
+            android:text="@string/buttonMultiplyText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+
+    </TableRow>
+
+    <TableRow android:id="@+id/tablerow3"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <Button android:id="@+id/buttonOne"
+            android:text="@string/buttonOneText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonTwo"
+            android:text="@string/buttonTwoText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonThree"
+            android:text="@string/butonThreeText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonSubtract"
+            android:text="@string/buttonSubtractText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"
+            />
+
+    </TableRow>
+
+    <TableRow android:id="@+id/tablerow4"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <Button android:id="@+id/buttonDot"
+            android:text="@string/buttonDotText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick" />
+
+        <Button android:id="@+id/buttonZero"
+            android:text="@string/buttonZeroText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonEqual"
+            android:text="@string/buttonEqualText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick" />
+
+        <Button android:id="@+id/buttonPlus"
+            android:text="@string/buttonPlusText"
+            style="@style/MyButtonStyle"
+            android:onClick="buttonClick"/>
+    </TableRow>
+</TableLayout>

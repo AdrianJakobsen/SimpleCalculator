@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">SimpleCalculator</string>
+    <string name="action_settings">Settings</string>
+    <string name="buttonZeroText">0</string>
+    <string name="buttonOneText">1</string>
+    <string name="buttonTwoText">2</string>
+    <string name="butonThreeText">3</string>
+    <string name="buttonFourText">4</string>
+    <string name="buttonFiveText">5</string>
+    <string name="buttonSixText">6</string>
+    <string name="buttonSevenText">7</string>
+    <string name="buttonEightText">8</string>
+    <string name="buttonNineText">9</string>
+    <string name="buttonEqualText">=</string>
+    <string name="buttonPlusText">+</string>
+    <string name="buttonSubtractText">-</string>
+    <string name="buttonDotText">.</string>
+    <string name="buttonCEText">CE</string>
+    <string name="buttonDivideText">/</string>
+    <string name="buttonMultiplyText">*</string>
+</resources>
