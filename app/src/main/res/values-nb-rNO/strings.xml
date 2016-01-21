@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Kalkulator</string>
+    <string name="action_settings">Instillinger</string>
+    <string name="action_about">om</string>
+    <string name="aboutInfo">Denne appen er laget av Adrian Jakobsen. Versjon 0.1</string>
+    <string name="action_close_program" translatable="false">lukk</string>
+    <string name="aboutTittle">om</string>
+    <string name="setting_language_ENG">Engelsk</string>
+    <string name="setting_language_NO">Norsk</string>
+    <string name="setting_language_ES">Spansk</string>
+    <string name="simpleLayout" translatable="false"></string>
+    <string name="button_change_layout">Endre kalkulator</string>
+    <string name="action_change_language">Skift Språk</string>
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="aboutInfo">Esta aplicación se hace por Adrian Jakobsen . Versión 0.01</string>
+    <string name="action_close_program" translatable="false">cerca</string>
+    <string name="aboutTittle">acerca </string>
+    <string name="action_change_language"></string>
+</resources>

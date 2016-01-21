@@ -2,9 +2,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.adrian.simplecalculator.MainCalcActivity">
+
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_about"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="@string/action_about"
+        android:icon="@android:drawable/ic_dialog_info"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/action_close_program"
+        android:orderInCategory="100"
+        android:title="@string/action_close_program"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        />
+    <item
+        android:id="@+id/change_layout"
+        android:orderInCategory="100"
+        android:title="@string/button_change_layout"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_change_language"
+        android:orderInCategory="100"
+        android:title="@string/action_change_language"
+        app:showAsAction="never"/>
 </menu>

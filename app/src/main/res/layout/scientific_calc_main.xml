@@ -4,54 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:gravity="bottom"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MyCalcActivity"
-    tools:showIn="@layout/activity_calc_main">
+    tools:context=".MyCalcActivity">
+    <include layout="@layout/toolbar"/>
 
-    <TableRow android:id="@+id/tableRowEquation"
-        android:layout_height="0dp"
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_weight="1"
-        android:layout_width="match_parent">
-
-        <TextView android:id="@+id/textViewEquation"
-            android:text=""
-            android:textSize="@dimen/abc_text_size_display_3_material"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:textColor="#000000"
-            android:gravity="right"
-            android:layout_span="4" />
-
-    </TableRow>
-
-    <TableRow android:id="@+id/tableRowsRes"
-        android:layout_height="0dp"
+        android:textSize="30sp"
+        android:text=""
+        android:id="@+id/textViewInput"
+        />
+    <TextView
+        android:layout_width="fill_parent"
         android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:weightSum="4">
+        android:layout_height="fill_parent"
+        android:textSize="30sp"
+        android:text=""
+        android:id="@+id/textViewRes"
+        />
 
-        <TextView android:id="@+id/textViewResult"
-            android:text=""
-            android:textSize="@dimen/abc_text_size_display_3_material"
-            android:layout_weight="4"
-            android:background="#ffffff"
-            android:textColor="#000000"
-            android:gravity="right"
-            android:layout_span="4" />
-    </TableRow>
+    <TableRow android:id="@+id/tablerow1">
 
-    <TableRow>
+        <Button android:id="@+id/buttonPercent"
+            android:text="@string/buttonPercentText"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"
+            />
 
-        <Button android:id="@+id/buttonCE"
+        <Button android:id="@+id/buttonSquareRoot"
+            android:text="@string/buttonSquareRootText"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonCloseBracket"
+            android:text="@string/buttonCloseBracketText"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonDelete"
             android:text="@string/buttonCEText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonBackSpace"
+            android:text="@string/buttonBackSpace"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"/>
 
     </TableRow>
 
-    <TableRow android:id="@+id/tablerow1"
+    <TableRow android:id="@+id/tablerow2"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
@@ -63,8 +70,7 @@
         <Button android:id="@+id/buttonEight"
             android:text="@string/buttonEightText"
             style="@style/MyButtonStyle"
-            android:onClick="buttonClick"
-            />
+            android:onClick="buttonClick" />
 
         <Button android:id="@+id/buttonNine"
             android:text="@string/buttonNineText"
@@ -73,12 +79,22 @@
 
         <Button android:id="@+id/buttonDivide"
             android:text="@string/buttonDivideText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonx2"
+            android:text="@string/buttonX2Text"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/button10x"
+            android:text="@string/button10xText"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"/>
 
     </TableRow>
 
-    <TableRow android:id="@+id/tablerow2"
+    <TableRow android:id="@+id/tablerow3"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
@@ -99,12 +115,22 @@
 
         <Button android:id="@+id/buttonMultiply"
             android:text="@string/buttonMultiplyText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonSin"
+            android:text="@string/buttonSinText"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonLog"
+            android:text="@string/buttonLogText"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"/>
 
     </TableRow>
 
-    <TableRow android:id="@+id/tablerow3"
+    <TableRow android:id="@+id/tablerow4"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
@@ -125,13 +151,23 @@
 
         <Button android:id="@+id/buttonSubtract"
             android:text="@string/buttonSubtractText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"
             />
 
+        <Button android:id="@+id/buttonCos"
+            android:text="@string/buttonCosText"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonEXP"
+            android:text="@string/buttonEXPText"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
     </TableRow>
 
-    <TableRow android:id="@+id/tablerow4"
+    <TableRow android:id="@+id/tablerow5"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
@@ -147,12 +183,24 @@
 
         <Button android:id="@+id/buttonEqual"
             android:text="@string/buttonEqualText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick" />
 
         <Button android:id="@+id/buttonPlus"
             android:text="@string/buttonPlusText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonTan"
+            android:text="@string/buttonTanText"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
+        <Button android:id="@+id/buttonPI"
+            android:text="@string/buttonPIText"
+            style="@style/MyButtonStyleOperator"
+            android:onClick="buttonClick"/>
+
     </TableRow>
+
 </TableLayout>

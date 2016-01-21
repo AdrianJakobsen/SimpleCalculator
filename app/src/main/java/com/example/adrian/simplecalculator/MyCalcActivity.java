@@ -1,5 +1,9 @@
 package com.example.adrian.simplecalculator;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,12 +18,16 @@ import org.matheclipse.parser.client.eval.DoubleEvaluator;
 
 public class MyCalcActivity extends AppCompatActivity {
 
+    private String layoutString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calc_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.simple_calc_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+        layoutString = getString(R.string.simpleLayout);
+
 
     }
 
@@ -35,90 +43,147 @@ public class MyCalcActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()){
+            case R.id.action_close_program:
+                this.finish();
+                break;
+            case R.id.action_about:
+                AlertDialog aboutDialog = new AlertDialog.Builder(MyCalcActivity.this).create();
+                aboutDialog.setTitle(getString(R.string.aboutTittle));
+                aboutDialog.setMessage(getString(R.string.aboutInfo));
+                aboutDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "ok",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                aboutDialog.show();
+                break;
+            case R.id.action_change_language:
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                break;
+            case R.id.change_layout:
+                if(layoutString == getString(R.string.simpleLayout)) {
+                    setContentView(R.layout.scientific_calc_main);
+                    Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+                    setSupportActionBar(toolbar);
+                    layoutString = getString(R.string.scientificLayout);
+                }else {
+                    setContentView(R.layout.simple_calc_main);
+                    Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+                    setSupportActionBar(toolbar);
+                    layoutString = getString(R.string.simpleLayout);
+                }
+                break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void buttonClick (View view) {
 
-        TextView textView;
+        TextView textViewEquation;
+        TextView textViewAnswear;
 
         switch (view.getId()) {
             case R.id.buttonZero:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("0");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("0");
                 break;
             case R.id.buttonOne:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("1");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("1");
                 break;
             case R.id.buttonTwo:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("2");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("2");
                 break;
             case R.id.buttonThree:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("3");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("3");
                 break;
             case R.id.buttonFour:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("4");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("4");
                 break;
             case R.id.buttonFive:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("5");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("5");
                 break;
             case R.id.buttonSix:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("6");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("6");
                 break;
             case R.id.buttonSeven:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("7");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("7");
                 break;
             case R.id.buttonEight:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("8");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("8");
                 break;
             case R.id.buttonNine:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("9");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("9");
                 break;
             case R.id.buttonPlus:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("+");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("+");
                 break;
             case R.id.buttonDivide:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("/");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("/");
                 break;
             case R.id.buttonSubtract:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("-");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("-");
                 break;
             case R.id.buttonMultiply:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append("*");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("*");
                 break;
             case R.id.buttonDot:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.append(".");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append(".");
                 break;
             case R.id.buttonEqual:
-                textView = (TextView) findViewById(R.id.textViewResult);
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 DoubleEvaluator mathParser = new DoubleEvaluator();
-                textView.setText(mathParser.evaluate(textView.getText().toString()) + "");
+                textViewAnswear = (TextView) findViewById(R.id.textViewRes);
+                textViewAnswear.setText(mathParser.evaluate(textViewEquation.getText().toString()) + "");
                 break;
             case R.id.buttonDelete:
-                textView = (TextView) findViewById(R.id.textViewResult);
-                textView.setText("");
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.setText("");
                 break;
+            case R.id.buttonPercent:
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("%");
+                break;
+            case R.id.buttonSquareRoot:
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("Sqrt[");
+                break;
+            case R.id.buttonCloseBracket:
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                textViewEquation.append("]");
+                break;
+            case R.id.buttonBackSpace:
+                textViewEquation = (TextView) findViewById(R.id.textViewInput);
+                backSpace(textViewEquation);
+                break;
+        }
+    }
+
+    private void backSpace(TextView text) {
+        if (text.length() < 1){
+            text.setText("");
+        }else {
+            String stringFormated = text.getText().toString().substring(0, text.length()-1);
+            text.setText(stringFormated);
         }
     }
 }

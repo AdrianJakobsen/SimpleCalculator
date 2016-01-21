@@ -1,21 +1,44 @@
 <resources>
-    <string name="app_name">SimpleCalculator</string>
-    <string name="action_settings">Settings</string>
-    <string name="buttonZeroText">0</string>
-    <string name="buttonOneText">1</string>
-    <string name="buttonTwoText">2</string>
-    <string name="butonThreeText">3</string>
-    <string name="buttonFourText">4</string>
-    <string name="buttonFiveText">5</string>
-    <string name="buttonSixText">6</string>
-    <string name="buttonSevenText">7</string>
-    <string name="buttonEightText">8</string>
-    <string name="buttonNineText">9</string>
-    <string name="buttonEqualText">=</string>
-    <string name="buttonPlusText">+</string>
-    <string name="buttonSubtractText">-</string>
-    <string name="buttonDotText">.</string>
-    <string name="buttonCEText">CE</string>
-    <string name="buttonDivideText">/</string>
-    <string name="buttonMultiplyText">*</string>
+    <string name="app_name">Calculator</string>
+    <string name="action_about">About</string>
+    <string name="aboutInfo">This app is made by Adrian Jakobsen. Version 0.01</string>
+    <string name="setting_language_NO">Norwegian</string>
+    <string name="setting_language_ENG">English</string>
+    <string name="setting_language_ES">Spanish</string>
+    <string name="action_change_language">Change Language</string>
+    <string name="aboutTittle">about</string>
+    <string name="action_close_program">Close</string>
+    <string name="button_change_layout">Change Calculator</string>
+    <string name="simpleLayout" translatable="false">simpleLayout</string>
+    <string name="scientificLayout" translatable="false">scientificLayout</string>
+    <string name="buttonZeroText" translatable="false">0</string>
+    <string name="buttonOneText" translatable="false">1</string>
+    <string name="buttonTwoText" translatable="false">2</string>
+    <string name="butonThreeText" translatable="false">3</string>
+    <string name="buttonFourText" translatable="false">4</string>
+    <string name="buttonFiveText" translatable="false">5</string>
+    <string name="buttonSixText" translatable="false">6</string>
+    <string name="buttonSevenText" translatable="false">7</string>
+    <string name="buttonEightText" translatable="false">8</string>
+    <string name="buttonNineText" translatable="false">9</string>
+    <string name="buttonEqualText" translatable="false">=</string>
+    <string name="buttonPlusText" translatable="false">+</string>
+    <string name="buttonSubtractText" translatable="false">-</string>
+    <string name="buttonDotText" translatable="false">.</string>
+    <string name="buttonCEText" translatable="false">CE</string>
+    <string name="buttonDivideText" translatable="false">/</string>
+    <string name="buttonMultiplyText" translatable="false">*</string>
+    <string name="buttonPercentText" translatable="false">%</string>
+    <string name="buttonSquareRootText" translatable="false">sqrt</string>
+    <string name="buttonCloseBracketText" translatable="false">]</string>
+    <string name="buttonEXPText" translatable="false">x^y</string>
+    <string name="buttonSinText" translatable="false">Sin</string>
+    <string name="buttonCosText" translatable="false">Cos</string>
+    <string name="buttonTanText" translatable="false">Tan</string>
+    <string name="button10xText" translatable="false">10x</string>
+    <string name="buttonLogText" translatable="false">log</string>
+    <string name="buttonX2Text" translatable="false">x²</string>
+    <string name="buttonBackSpace">C</string>
+    <string name="buttonPIText" translatable="false">PI</string>
+    <string name="action_settings">Setting</string>
 </resources>
