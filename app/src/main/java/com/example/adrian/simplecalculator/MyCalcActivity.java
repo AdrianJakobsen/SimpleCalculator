@@ -2,11 +2,7 @@ package com.example.adrian.simplecalculator;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -15,8 +11,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.matheclipse.parser.client.eval.DoubleEvaluator;
-
-import java.util.Locale;
 
 public class MyCalcActivity extends AppCompatActivity {
 
@@ -128,51 +122,21 @@ public class MyCalcActivity extends AppCompatActivity {
         TextView textViewAnswear;
 
         switch (view.getId()) {
-            case R.id.buttonZero:
-                textViewEquation.append("0");
-                break;
-            case R.id.buttonOne:
-                textViewEquation.append("1");
-                break;
-            case R.id.buttonTwo:
-                textViewEquation.append("2");
-                break;
-            case R.id.buttonThree:
-                textViewEquation.append("3");
-                break;
-            case R.id.buttonFour:
-                textViewEquation.append("4");
-                break;
-            case R.id.buttonFive:
-                textViewEquation.append("5");
-                break;
-            case R.id.buttonSix:
-                textViewEquation.append("6");
-                break;
-            case R.id.buttonSeven:
-                textViewEquation.append("7");
-                break;
-            case R.id.buttonEight:
-                textViewEquation.append("8");
-                break;
-            case R.id.buttonNine:
-                textViewEquation.append("9");
-                break;
-            case R.id.buttonPlus:
-                textViewEquation.append("+");
-                break;
-            case R.id.buttonDivide:
-                textViewEquation.append("/");
-                break;
-            case R.id.buttonSubtract:
-                textViewEquation.append("-");
-                break;
-            case R.id.buttonMultiply:
-                textViewEquation.append("*");
-                break;
-            case R.id.buttonDot:
-                textViewEquation.append(".");
-                break;
+            case R.id.buttonZero:textViewEquation.append("0"); break;
+            case R.id.buttonOne:textViewEquation.append("1");break;
+            case R.id.buttonTwo:textViewEquation.append("2");break;
+            case R.id.buttonThree:textViewEquation.append("3");break;
+            case R.id.buttonFour:textViewEquation.append("4");break;
+            case R.id.buttonFive:textViewEquation.append("5");break;
+            case R.id.buttonSix:textViewEquation.append("6");break;
+            case R.id.buttonSeven:textViewEquation.append("7");break;
+            case R.id.buttonEight:textViewEquation.append("8");break;
+            case R.id.buttonNine:textViewEquation.append("9");break;
+            case R.id.buttonPlus:textViewEquation.append("+");break;
+            case R.id.buttonDivide:textViewEquation.append("/");break;
+            case R.id.buttonSubtract:textViewEquation.append("-");break;
+            case R.id.buttonMultiply:textViewEquation.append("*");break;
+            case R.id.buttonDot:textViewEquation.append(".");break;
             case R.id.buttonEqual:
                 DoubleEvaluator mathParser = new DoubleEvaluator();
                 textViewAnswear = (TextView) findViewById(R.id.textViewRes);
@@ -197,42 +161,18 @@ public class MyCalcActivity extends AppCompatActivity {
                 textViewAnswear = (TextView) findViewById(R.id.textViewRes);
                 textViewAnswear.setText("");
                 break;
-            case R.id.buttonPercent:
-                textViewEquation.append("/100");
-                break;
-            case R.id.buttonSquareRoot:
-                textViewEquation.append("Sqrt[");
-                break;
-            case R.id.buttonCloseBracket:
-                textViewEquation.append("]");
-                break;
-            case R.id.buttonBackSpace:
-                backSpace(textViewEquation);
-                break;
-            case R.id.buttonx2:
-                textViewEquation.append("^2");
-                break;
-            case R.id.button10x:
-                textViewEquation.append("10^");
-                break;
-            case R.id.buttonSin:
-                textViewEquation.append("Sin[");
-                break;
-            case R.id.buttonCos:
-                textViewEquation.append("Cos[");
-                break;
-            case R.id.buttonTan:
-                textViewEquation.append("Tan[");
-                break;
-            case R.id.buttonLog:
-                textViewEquation.append("Log[");
-                break;
-            case R.id.buttonEXP:
-                textViewEquation.append("^");
-                break;
-            case R.id.buttonPI:
-                textViewEquation.append("Pi");
-                break;
+            case R.id.buttonPercent:textViewEquation.append("/100");break;
+            case R.id.buttonSquareRoot:textViewEquation.append("Sqrt[");break;
+            case R.id.buttonCloseBracket:textViewEquation.append("]");break;
+            case R.id.buttonBackSpace:backSpace(textViewEquation);break;
+            case R.id.buttonx2:textViewEquation.append("^2");break;
+            case R.id.button10x:textViewEquation.append("10^");break;
+            case R.id.buttonSin:textViewEquation.append("Sin[");break;
+            case R.id.buttonCos:textViewEquation.append("Cos[");break;
+            case R.id.buttonTan:textViewEquation.append("Tan[");break;
+            case R.id.buttonLog:textViewEquation.append("Log[");break;
+            case R.id.buttonEXP:textViewEquation.append("^");break;
+            case R.id.buttonPI:textViewEquation.append("Pi");break;
         }
     }
 

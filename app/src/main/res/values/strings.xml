@@ -45,4 +45,9 @@
     <string name="buttonX2Text" translatable="false">x²</string>
     <string name="buttonBackSpace" translatable="false">C</string>
     <string name="buttonPIText" translatable="false">PI</string>
+    <string name="action_change_language">Change Language</string>
+    <string name="changeLanguageTittle">Language</string>
+    <string name="setting_language_ENG">English</string>
+    <string name="setting_language_ES">Spanish</string>
+    <string name="setting_language_NO">Norwegian</string>
 </resources>

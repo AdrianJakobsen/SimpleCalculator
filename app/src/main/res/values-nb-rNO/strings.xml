@@ -7,11 +7,12 @@
     <string name="setting_language_ENG">Engelsk</string>
     <string name="setting_language_NO">Norsk</string>
     <string name="setting_language_ES">Spansk</string>
-    <string name="simpleLayout" translatable="false"></string>
     <string name="button_change_layout">Endre kalkulator</string>
     <string name="action_change_language">Skift Språk</string>
     <string name="changeLanguageTittle">Språk</string>
     <string name="expressionIsWrong">uttryket du skrev inn har en feil, endre feilen og prøv på nytt</string>
-    <string name="expressionisWrongTitle"></string>
+    <string name="action_close_program">Avslutt</string>
+    <string name="buttonScientifcViewText">Vitenskapelig kalkulator</string>
+    <string name="buttonSimpleViewText">Enkel kalkulator</string>
 
 </resources>
