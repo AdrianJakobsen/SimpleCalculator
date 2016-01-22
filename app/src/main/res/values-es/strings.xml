@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="aboutInfo">Esta aplicación se hace por Adrian Jakobsen . Versión 0.01</string>
-    <string name="action_close_program" translatable="false">cerca</string>
     <string name="aboutTittle">acerca </string>
-    <string name="action_change_language"></string>
+    <string name="action_change_language">cambiar idioma</string>
+    <string name="button_change_layout">cambio calculadora</string>
+    <string name="changeLanguageTittle">idioma</string>
+    <string name="action_about">acerca de</string>
+    <string name="action_settings">ajuste</string>
+    <string name="app_name">calculadora</string>
+    <string name="expressionIsWrong">la expresión que introduce es inválida , por favor intente de nuevo</string>
+    <string name="expressionisWrongTitle" translatable="false"></string>
+    <string name="setting_language_ENG">Inglés</string>
+    <string name="setting_language_ES">Español</string>
+    <string name="setting_language_NO">noruego</string>
 </resources>

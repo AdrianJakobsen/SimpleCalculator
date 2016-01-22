@@ -12,6 +12,7 @@
     <include layout="@layout/toolbar"/>
 
         <TextView
+            android:freezesText="true"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -20,6 +21,7 @@
             android:id="@+id/textViewInput"
            />
         <TextView
+            android:freezesText="true"
             android:layout_width="fill_parent"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -32,30 +34,30 @@
 
         <Button android:id="@+id/buttonPercent"
             android:text="@string/buttonPercentText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"
             />
 
         <Button android:id="@+id/buttonSquareRoot"
             android:text="@string/buttonSquareRootText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"/>
 
         <Button android:id="@+id/buttonCloseBracket"
             android:text="@string/buttonCloseBracketText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"
             />
 
         <Button android:id="@+id/buttonDelete"
             android:text="@string/buttonCEText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"
             />
 
         <Button android:id="@+id/buttonBackSpace"
             android:text="@string/buttonBackSpace"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:gravity="center"
             android:onClick="buttonClick"
             />
@@ -84,7 +86,7 @@
 
         <Button android:id="@+id/buttonDivide"
             android:text="@string/buttonDivideText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"/>
 
     </TableRow>
@@ -110,7 +112,7 @@
 
         <Button android:id="@+id/buttonMultiply"
             android:text="@string/buttonMultiplyText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"/>
 
     </TableRow>
@@ -136,7 +138,7 @@
 
         <Button android:id="@+id/buttonSubtract"
             android:text="@string/buttonSubtractText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"
             />
 
@@ -158,12 +160,12 @@
 
         <Button android:id="@+id/buttonEqual"
             android:text="@string/buttonEqualText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick" />
 
         <Button android:id="@+id/buttonPlus"
             android:text="@string/buttonPlusText"
-            style="@style/MyButtonStyle"
+            style="@style/MyButtonStyleOperator"
             android:onClick="buttonClick"/>
     </TableRow>
 

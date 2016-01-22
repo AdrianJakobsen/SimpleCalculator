@@ -29,5 +29,29 @@
         android:id="@+id/action_change_language"
         android:orderInCategory="100"
         android:title="@string/action_change_language"
-        app:showAsAction="never"/>
+        app:showAsAction="never">
+
+        <menu>
+            <group
+                android:checkableBehavior="none"
+                >
+                <item android:id="@+id/buttonNorwegian"
+                    android:title="@string/setting_language_NO"
+                    android:orderInCategory="100"
+                    app:showAsAction="never"/>
+
+                <item android:id="@+id/buttonEnglish"
+                    android:title="@string/setting_language_ENG"
+                    android:orderInCategory="100"
+                    app:showAsAction="never"/>
+
+                <item android:id="@+id/buttonSpanish"
+                    android:title="@string/setting_language_ES"
+                    android:orderInCategory="100"
+                    app:showAsAction="never"/>
+
+            </group>
+        </menu>
+    </item>
+
 </menu>

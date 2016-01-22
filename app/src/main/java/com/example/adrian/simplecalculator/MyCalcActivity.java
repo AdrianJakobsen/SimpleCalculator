@@ -16,21 +16,68 @@ import android.widget.TextView;
 
 import org.matheclipse.parser.client.eval.DoubleEvaluator;
 
+import java.util.Locale;
+
 public class MyCalcActivity extends AppCompatActivity {
 
-    private String layoutString;
+    private boolean simpleLayout = true;
+    private final String layoutStateKey = "LAYOUTSTATE_KEY";
+    private final String equationStringKey = "EQUATiON_key";
+    private final String answearStringKey = "ANSWEAR_KEY";
+    private final String languageNorwegianKey = "NORWEGIAN_KEY";
+    private final String languageSpanishKey = "SPANISH_KEY";
+    private final String languageEngilshKey = "ENGLISH_KEY";
+    private String languageState = "English";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.simple_calc_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
-        layoutString = getString(R.string.simpleLayout);
-
-
+        restoreState(savedInstanceState);
+        if (simpleLayout == true) {
+            setContentView(R.layout.simple_calc_main);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+            setSupportActionBar(toolbar);
+        }else {
+            setContentView(R.layout.scientific_calc_main);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+            setSupportActionBar(toolbar);
+            simpleLayout = false;
+        }
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        TextView textViewEquation = (TextView) findViewById(R.id.textViewInput);
+        savedInstanceState.putString(equationStringKey, textViewEquation.toString());
+        TextView textViewAnswear = (TextView) findViewById(R.id.textViewRes);
+        savedInstanceState.putString(answearStringKey, textViewAnswear.toString());
+        savedInstanceState.putBoolean(layoutStateKey, simpleLayout);
+        switch (languageState){
+            case "English":
+                savedInstanceState.putString(languageEngilshKey, "en");
+                break;
+            case "Norwegian":
+                savedInstanceState.putString(languageNorwegianKey, "no");
+                break;
+            case "Spanish":
+                savedInstanceState.putString(languageSpanishKey, "es");
+                break;
+        }
+        super.onSaveInstanceState(savedInstanceState);
     }
 
+    private void restoreState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            TextView textViewEquation = (TextView) findViewById(R.id.textViewInput);
+            if(textViewEquation != null) {
+                textViewEquation.setText(savedInstanceState.getString(equationStringKey));
+            }
+            TextView textViewAnswear = (TextView) findViewById(R.id.textViewRes);
+            if(textViewAnswear != null) {
+                textViewAnswear.setText(savedInstanceState.getString(answearStringKey));
+            }
+            simpleLayout = savedInstanceState.getBoolean(layoutStateKey);
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -43,10 +90,12 @@ public class MyCalcActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        String languageToLoad;
         switch (item.getItemId()){
             case R.id.action_close_program:
                 this.finish();
                 break;
+
             case R.id.action_about:
                 AlertDialog aboutDialog = new AlertDialog.Builder(MyCalcActivity.this).create();
                 aboutDialog.setTitle(getString(R.string.aboutTittle));
@@ -60,20 +109,39 @@ public class MyCalcActivity extends AppCompatActivity {
                         });
                 aboutDialog.show();
                 break;
-            case R.id.action_change_language:
 
+            case R.id.buttonNorwegian:
+                languageToLoad = getString(R.string.setting_language_NO);
+                setLanguage(
+                        languageToLoad);
                 break;
+            case R.id.buttonSpanish:
+                languageToLoad = getString(R.string.setting_language_ES);
+                setLanguage(languageToLoad);
+                break;
+
+            case R.id.buttonEnglish:
+                languageToLoad = getString(R.string.setting_language_ENG);
+                setLanguage(languageToLoad);
+                break;
+
             case R.id.change_layout:
-                if(layoutString == getString(R.string.simpleLayout)) {
+                String tempEquation = ((TextView) findViewById(R.id.textViewInput)).getText().toString();
+                String tempAnswear = ((TextView) findViewById(R.id.textViewRes)).getText().toString();
+                if(simpleLayout == true) {
                     setContentView(R.layout.scientific_calc_main);
                     Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
                     setSupportActionBar(toolbar);
-                    layoutString = getString(R.string.scientificLayout);
+                     ((TextView) findViewById(R.id.textViewInput)).setText(tempEquation);
+                    ((TextView) findViewById(R.id.textViewRes)).setText(tempAnswear);
+                    simpleLayout = false;
                 }else {
                     setContentView(R.layout.simple_calc_main);
                     Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
                     setSupportActionBar(toolbar);
-                    layoutString = getString(R.string.simpleLayout);
+                    ((TextView) findViewById(R.id.textViewInput)).setText(tempEquation);
+                    ((TextView) findViewById(R.id.textViewRes)).setText(tempAnswear);
+                    simpleLayout = true;
                 }
                 break;
         }
@@ -81,99 +149,145 @@ public class MyCalcActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void setLanguage(String languageToLoad) {
+        Locale locale = new Locale( getLocaleCode(languageToLoad));
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+        if(simpleLayout == true){
+            this.setContentView(R.layout.simple_calc_main);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+            setSupportActionBar(toolbar);
+        }else {
+            this.setContentView(R.layout.scientific_calc_main);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+            setSupportActionBar(toolbar);
+        }
+    }
+
+    private String getLocaleCode(String languageToLoad) {
+        if(languageToLoad.equals(getString(R.string.setting_language_ENG))){
+            return "en";
+        }else if (languageToLoad.equals(getString(R.string.setting_language_ES))){
+            return "es";
+        }else {
+            return "nb-rNO";
+        }
+    }
 
 
     public void buttonClick (View view) {
 
-        TextView textViewEquation;
+        TextView textViewEquation = (TextView) findViewById(R.id.textViewInput);
         TextView textViewAnswear;
 
         switch (view.getId()) {
             case R.id.buttonZero:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("0");
                 break;
             case R.id.buttonOne:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("1");
                 break;
             case R.id.buttonTwo:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("2");
                 break;
             case R.id.buttonThree:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("3");
                 break;
             case R.id.buttonFour:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("4");
                 break;
             case R.id.buttonFive:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("5");
                 break;
             case R.id.buttonSix:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("6");
                 break;
             case R.id.buttonSeven:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("7");
                 break;
             case R.id.buttonEight:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("8");
                 break;
             case R.id.buttonNine:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("9");
                 break;
             case R.id.buttonPlus:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("+");
                 break;
             case R.id.buttonDivide:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("/");
                 break;
             case R.id.buttonSubtract:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("-");
                 break;
             case R.id.buttonMultiply:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("*");
                 break;
             case R.id.buttonDot:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append(".");
                 break;
             case R.id.buttonEqual:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 DoubleEvaluator mathParser = new DoubleEvaluator();
                 textViewAnswear = (TextView) findViewById(R.id.textViewRes);
-                textViewAnswear.setText(mathParser.evaluate(textViewEquation.getText().toString()) + "");
+                try {
+                    textViewAnswear.setText(mathParser.evaluate(textViewEquation.getText().toString()) + "");
+                }catch (Exception exception){
+                    AlertDialog aboutDialog = new AlertDialog.Builder(MyCalcActivity.this).create();
+                    aboutDialog.setTitle(getString(R.string.expressionisWrongTitle));
+                    aboutDialog.setMessage(getString(R.string.expressionIsWrong));
+                    aboutDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "close",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    aboutDialog.show();
+                }
                 break;
             case R.id.buttonDelete:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.setText("");
+                textViewAnswear = (TextView) findViewById(R.id.textViewRes);
+                textViewAnswear.setText("");
                 break;
             case R.id.buttonPercent:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
-                textViewEquation.append("%");
+                textViewEquation.append("/100");
                 break;
             case R.id.buttonSquareRoot:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("Sqrt[");
                 break;
             case R.id.buttonCloseBracket:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 textViewEquation.append("]");
                 break;
             case R.id.buttonBackSpace:
-                textViewEquation = (TextView) findViewById(R.id.textViewInput);
                 backSpace(textViewEquation);
+                break;
+            case R.id.buttonx2:
+                textViewEquation.append("^2");
+                break;
+            case R.id.button10x:
+                textViewEquation.append("10^");
+                break;
+            case R.id.buttonSin:
+                textViewEquation.append("Sin[");
+                break;
+            case R.id.buttonCos:
+                textViewEquation.append("Cos[");
+                break;
+            case R.id.buttonTan:
+                textViewEquation.append("Tan[");
+                break;
+            case R.id.buttonLog:
+                textViewEquation.append("Log[");
+                break;
+            case R.id.buttonEXP:
+                textViewEquation.append("^");
+                break;
+            case R.id.buttonPI:
+                textViewEquation.append("Pi");
                 break;
         }
     }

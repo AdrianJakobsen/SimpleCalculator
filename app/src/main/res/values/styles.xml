@@ -39,4 +39,26 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="MyButtonStyleOperatorLandscape" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">@dimen/my_button_margin</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">#3B240B</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:background">@drawable/buttonshape_operator</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MyButtonStyleLandscape" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">@dimen/my_button_margin</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">#3B240B</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:background">@drawable/buttonshape</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>
