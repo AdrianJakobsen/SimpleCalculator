@@ -23,31 +23,18 @@
         android:id="@+id/change_layout"
         android:orderInCategory="100"
         android:title="@string/button_change_layout"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/action_change_language"
-        android:orderInCategory="100"
-        android:title="@string/action_change_language"
         app:showAsAction="never">
-
         <menu>
-            <group
-                android:checkableBehavior="none"
-                >
-                <item android:id="@+id/buttonNorwegian"
-                    android:title="@string/setting_language_NO"
-                    android:orderInCategory="100"
-                    app:showAsAction="never"/>
+            <group>
 
-                <item android:id="@+id/buttonEnglish"
-                    android:title="@string/setting_language_ENG"
+                <item android:id="@+id/buttonScientifcView"
                     android:orderInCategory="100"
-                    app:showAsAction="never"/>
-
-                <item android:id="@+id/buttonSpanish"
-                    android:title="@string/setting_language_ES"
+                    android:title="@string/buttonScientifcViewText"
+                    app:showAsAction="never"
+                    />
+                <item android:id="@+id/buttonSimpleView"
                     android:orderInCategory="100"
+                    android:title="@string/buttonSimpleViewText"
                     app:showAsAction="never"/>
 
             </group>

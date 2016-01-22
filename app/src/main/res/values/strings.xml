@@ -4,14 +4,11 @@
     <string name="action_settings">Setting</string>
     <string name="action_close_program">Close</string>
 
-    <string name="setting_language_NO">Norwegian</string>
-    <string name="setting_language_ENG">English</string>
-    <string name="setting_language_ES">Spanish</string>
-    <string name="action_change_language">Change Language</string>
-    <string name="changeLanguageTittle">Language</string>
-
     <string name="aboutTittle">about</string>
     <string name="aboutInfo">This app is made by Adrian Jakobsen. Version 0.01</string>
+
+    <string name="buttonScientifcViewText">Scinetific Calulator</string>
+    <string name="buttonSimpleViewText">Simple Calculator</string>
 
     <string name="expressionIsWrong">the expression you enter is invalid, please try again</string>
     <string name="expressionisWrongTitle" translatable="false">ERROR</string>

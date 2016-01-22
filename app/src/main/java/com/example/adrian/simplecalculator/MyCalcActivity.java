@@ -24,10 +24,7 @@ public class MyCalcActivity extends AppCompatActivity {
     private final String layoutStateKey = "LAYOUTSTATE_KEY";
     private final String equationStringKey = "EQUATiON_key";
     private final String answearStringKey = "ANSWEAR_KEY";
-    private final String languageNorwegianKey = "NORWEGIAN_KEY";
-    private final String languageSpanishKey = "SPANISH_KEY";
-    private final String languageEngilshKey = "ENGLISH_KEY";
-    private String languageState = "English";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +48,6 @@ public class MyCalcActivity extends AppCompatActivity {
         TextView textViewAnswear = (TextView) findViewById(R.id.textViewRes);
         savedInstanceState.putString(answearStringKey, textViewAnswear.toString());
         savedInstanceState.putBoolean(layoutStateKey, simpleLayout);
-        switch (languageState){
-            case "English":
-                savedInstanceState.putString(languageEngilshKey, "en");
-                break;
-            case "Norwegian":
-                savedInstanceState.putString(languageNorwegianKey, "no");
-                break;
-            case "Spanish":
-                savedInstanceState.putString(languageSpanishKey, "es");
-                break;
-        }
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -110,71 +96,29 @@ public class MyCalcActivity extends AppCompatActivity {
                 aboutDialog.show();
                 break;
 
-            case R.id.buttonNorwegian:
-                languageToLoad = getString(R.string.setting_language_NO);
-                setLanguage(
-                        languageToLoad);
-                break;
-            case R.id.buttonSpanish:
-                languageToLoad = getString(R.string.setting_language_ES);
-                setLanguage(languageToLoad);
-                break;
-
-            case R.id.buttonEnglish:
-                languageToLoad = getString(R.string.setting_language_ENG);
-                setLanguage(languageToLoad);
-                break;
-
-            case R.id.change_layout:
+            case R.id.buttonScientifcView:
                 String tempEquation = ((TextView) findViewById(R.id.textViewInput)).getText().toString();
                 String tempAnswear = ((TextView) findViewById(R.id.textViewRes)).getText().toString();
-                if(simpleLayout == true) {
-                    setContentView(R.layout.scientific_calc_main);
-                    Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-                    setSupportActionBar(toolbar);
-                     ((TextView) findViewById(R.id.textViewInput)).setText(tempEquation);
-                    ((TextView) findViewById(R.id.textViewRes)).setText(tempAnswear);
-                    simpleLayout = false;
-                }else {
-                    setContentView(R.layout.simple_calc_main);
-                    Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-                    setSupportActionBar(toolbar);
-                    ((TextView) findViewById(R.id.textViewInput)).setText(tempEquation);
-                    ((TextView) findViewById(R.id.textViewRes)).setText(tempAnswear);
-                    simpleLayout = true;
-                }
+                setContentView(R.layout.scientific_calc_main);
+                Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+                setSupportActionBar(toolbar);
+                ((TextView) findViewById(R.id.textViewInput)).setText(tempEquation);
+                ((TextView) findViewById(R.id.textViewRes)).setText(tempAnswear);
+                simpleLayout=false;
+                break;
+            case R.id.buttonSimpleView:
+                String tempEquationSimple = ((TextView) findViewById(R.id.textViewInput)).getText().toString();
+                String tempAnswearSimple = ((TextView) findViewById(R.id.textViewRes)).getText().toString();
+                setContentView(R.layout.simple_calc_main);
+                Toolbar toolbarSimple = (Toolbar) findViewById(R.id.my_toolbar);
+                setSupportActionBar(toolbarSimple);
+                ((TextView) findViewById(R.id.textViewInput)).setText(tempEquationSimple);
+                ((TextView) findViewById(R.id.textViewRes)).setText(tempAnswearSimple);
+                simpleLayout=true;
                 break;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void setLanguage(String languageToLoad) {
-        Locale locale = new Locale( getLocaleCode(languageToLoad));
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config,
-                getBaseContext().getResources().getDisplayMetrics());
-        if(simpleLayout == true){
-            this.setContentView(R.layout.simple_calc_main);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-            setSupportActionBar(toolbar);
-        }else {
-            this.setContentView(R.layout.scientific_calc_main);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-            setSupportActionBar(toolbar);
-        }
-    }
-
-    private String getLocaleCode(String languageToLoad) {
-        if(languageToLoad.equals(getString(R.string.setting_language_ENG))){
-            return "en";
-        }else if (languageToLoad.equals(getString(R.string.setting_language_ES))){
-            return "es";
-        }else {
-            return "nb-rNO";
-        }
     }
 
 
